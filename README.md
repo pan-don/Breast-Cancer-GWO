@@ -1,4 +1,10 @@
-# Metaheuristic Optimization and AutoML: SVM Optimization using GWO and CG-GWO
+<h1 align="center">
+  <strong>AutoML for Breast Cancer Prediction: A Comparative Study of GWO and CG-GWO for Joint Feature Selection and SVM Hyperparameter Tuning</strong>
+</h1>
+
+<p align="center">
+  <img src="https://i.pinimg.com/originals/be/00/47/be004788944ed7f9af035a47ff367b3b.jpg" width="700"/>
+</p>
 
 This repository contains a comprehensive Jupyter Notebook that performs a comparative study to optimize a Support Vector Machine (SVM) model using the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Repository (ID: 17).
 
