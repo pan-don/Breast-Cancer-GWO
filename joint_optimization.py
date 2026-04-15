@@ -35,15 +35,13 @@ class SVMJointOptimization(Problem):
         gamma_log = solution[-3]
         C = 2 ** C_log
         gamma = 2 ** gamma_log
-        kernel_raw = solution[-2]
         class_weight_raw = solution[-1]
-        kernel = "rbf" if kernel_raw > 0 else "linear"
         class_weight = "balanced" if class_weight_raw > 0 else None
         
-        return np.array(binary_features), C, gamma, kernel, class_weight
+        return np.array(binary_features), C, gamma, class_weight
 
     def obj_func(self, solution):
-        binary_features, C, gamma, kernel, class_weight = self.decode_solution(solution)
+        binary_features, C, gamma, class_weight = self.decode_solution(solution)
         
         selected_indices = np.where(binary_features == 1)[0]
         X_train_sel = self.X_train[:, selected_indices]
@@ -51,8 +49,8 @@ class SVMJointOptimization(Problem):
         
         svm = SVC(
             C=C,
-            gamma=gamma if kernel == "rbf" else "scale",
-            kernel=kernel,
+            gamma=gamma,
+            kernel='rbf',
             class_weight=class_weight,
             random_state=42
         )
